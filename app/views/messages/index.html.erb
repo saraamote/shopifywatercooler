@@ -1,54 +1,89 @@
-<p id="notice"><%= notice %></p>
+<div>
 
-<h1>Water Cooler</h1>
+  <p id="notice"><%= notice %></p>
 
-<h2>Go ahead, add a splash of fun!</h2>
+  <div class="navbar panel panel-default">
 
-<table>
+    <div class="container-fluid">
 
-  <thead>
+      <div class="navbar-header">
 
-    <tr>
+        <div class="navbar-brand">
 
-      <th>Who</th>
+          Water Cooler
 
-      <th>What</th>
+          <small>Go ahead, add a splash of fun!</small>
 
-      <th>When</th>
+        </div>
 
-      <th colspan="3"></th>
+      </div>
 
-    </tr>
+      <div class="navbar-header navbar-right">
 
-  </thead>
+        <%= link_to new_message_path, :class=> 'btn btn-primary navbar-btn' do %>
 
+          <span class="glyphicon glyphicon-plus"></span>
 
-  <tbody>
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div>
 
     <% @messages.each do |message| %>
 
-      <tr>
+      <div class="panel panel-default">
 
-        <td><%= message.who %></td>
+        <div class="panel-body">
 
-        <td><%= message.what %></td>
+          <p class="lead">
 
-        <td><%= message.when %></td>
+            <%= message.what %>
 
-        <!--<td><%= link_to 'Show', message %></td>-->
+          </p>
 
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
+          <p class="text-muted">
 
-        <td><%= link_to 'Delete', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <i>
 
-      </tr>
+              <%= message.who %> said on <%= message.when.to_formatted_s( :short ) %>
+
+            </i>
+
+          </p>
+
+          <!--<td><%= link_to 'Show', message %></td>-->
+
+          <div>
+
+            <%= link_to edit_message_path(message), :class=> 'btn btn-link' do %>
+
+              <span class="glyphicon glyphicon-pencil"></span> Edit
+
+            <% end %>
+
+            or
+
+            <%= link_to message, method: :delete, data: { confirm: 'Are you sure?' }, :class=> 'btn btn-link' do %>
+
+              <span class="glyphicon glyphicon-remove"></span> Remove
+
+            <% end %>
+
+          </div>
+
+        </div>
+
+      </div>
 
     <% end %>
 
-  </tbody>
+    <!--<%= link_to 'Add a little more chatter', new_message_path %>-->
 
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'Add a little more chatter', new_message_path %>
+</div>

@@ -22,7 +22,7 @@
 
         <%= link_to new_message_path, :class=> 'btn btn-primary navbar-btn' do %>
 
-          <span class="glyphicon glyphicon-plus"></span>
+          Add a message
 
         <% end %>
 
@@ -32,11 +32,11 @@
 
   </div>
 
-  <div>
-
     <% @messages.each do |message| %>
 
-      <div class="panel panel-default">
+  <div class="">
+
+      <div class="panel panel-default col-lg-4">
 
         <div class="panel-body">
 
@@ -70,7 +70,7 @@
 
             <%= link_to message, method: :delete, data: { confirm: 'Are you sure?' }, :class=> 'btn btn-link' do %>
 
-              <span class="glyphicon glyphicon-remove"></span> Remove
+              <span class="glyphicon glyphicon-remove"></span> Delete
 
             <% end %>
 
